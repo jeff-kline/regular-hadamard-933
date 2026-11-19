@@ -110,6 +110,6 @@ begin
   check(311, [1,4], %w[0-+--0+0 0000+-0- ++0-0000 +0-00++-], 3)
   raise 'control passed'
 rescue RuntimeError => e
-  raise if e.message == 'control passed'
+  raise unless e.message.start_with?('line energy')
   puts "control: p=311 with one column of signs flipped fails as required (#{e.message})"
 end

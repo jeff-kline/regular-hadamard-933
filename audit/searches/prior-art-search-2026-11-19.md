@@ -56,8 +56,8 @@ search is recorded as NOT PERFORMED, not as a negative result.
 
 - Crnković, Discrete Math. 341 (2018): the list of 111 unresolved parameters
   below 1000, which includes 933, and the two conference-graph
-  constructions. Read in the earlier priority pass; a later proof audit could
-  not open the publisher page.
+  constructions. Read on 2026-11-18; on 2026-11-19 the publisher refused
+  access.
 - Xia, Xia and Seberry (2003): Definition 7, Theorems 2–4, Proposition 1,
   Lemma 4.
 - Xia, Xia and Seberry (2007): the abstract and §4.2 (933 undetermined).
@@ -66,8 +66,8 @@ search is recorded as NOT PERFORMED, not as a negative result.
 - Xia, Seberry and Xia, author manuscript *Constructing regular Hadamard
   matrices by 16th power cyclotomic classes* (University of Wollongong):
   Section 4, Section 9, Appendix A and Remark 3 (311 a gap in the method).
-  Read in the earlier priority pass; the PDF's text layer is damaged and
-  some pages render blank.
+  Read on 2026-11-18; the PDF's text layer is damaged, and on 2026-11-19
+  some pages rendered blank.
 - Xia, Seberry and Xia, six-page manuscript (University of Wollongong, 2006):
   Theorems 1–3, Corollary 2, Appendix A.
 - Leung, Ma and Schmidt (2006): §§3, 5–7 and Appendices 1–3.
@@ -75,3 +75,17 @@ search is recorded as NOT PERFORMED, not as a negative result.
   product and McFarland's theorem).
 - Wallis and Whiteman (1972): Theorem 16 and Corollary 17.
 - Seberry and Yamada (1992), §10.2.
+
+## Follow-up (2026-11-19, after the claims audit)
+
+- Web search `Xia Xia "A family of C-partitions and T-matrices" Journal of
+  Combinatorial Designs 1999` and `"A new method for constructing T-matrices"
+  Xia Seberry Zuo`: bibliographic records only. The 1999 paper (J. Combin.
+  Des. 7, 269–281) was not openly accessible. University of Wollongong
+  repository pages returned 403.
+- Xia, Xia, Seberry and Zuo, *A new method for constructing T-matrices*,
+  Australas. J. Combin. 32 (2005), 61–78 (open PDF; text layer damaged, read
+  as page images): abstract, introduction and references. It constructs
+  $T$-matrices of order $q^2$ for prime powers $q\equiv3\pmod8$ and credits
+  $C$-partitions to M. Y. Xia (1984) and their infinite family on
+  $GF(q^2)$, $q\equiv3\pmod8$, to M. Xia and T. Xia (1999).

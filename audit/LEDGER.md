@@ -58,3 +58,65 @@ summarized here.
 - **Control added.** `code/check-certificates.rb` now runs a control that
   flips both signs in one column, keeping products and row sums. It fails at
   the energy test, as required.
+
+## 2026-11-19 — release audits of draft commit c0c4e7e
+
+Three read-only audits in fresh contexts.
+
+- **Reproducibility.** PASS.
+  - A clean `git archive` gives 3 MATCH; `make paper` is deterministic and
+    byte-identical to the committed PDF.
+  - Findings and dispositions:
+    - math in README link text was not rendered (documentation): fixed;
+    - the negative control accepted any failure (documentation): it now
+      requires the energy failure;
+    - MANIFEST.sha256 was missing (documentation): added at the candidate.
+- **Citations.** One error: the third author of Egan et al. is S. London
+  (fixed).
+  - Sources not openly accessible are listed as residuals in
+    `audit/PRIOR-ART.md`.
+  - Leung–Ma–Schmidt is paywalled at the publisher; its appendices were read
+    from the author-hosted copy in the proof audit.
+  - The Momihara–Xiang entry now uses its DOI.
+- **Claims and assembled manuscript.** PASS-WITH-FIXES. All numbers, the
+  numbering, the 11 cold-examiner errata and the Stage 1 and Stage 2 hashes
+  check out.
+  - Findings:
+    1. (gap) Xia–Xia–Seberry (2003), Proposition 4, gives concentrated
+       $T$-matrices at every prime power $q\equiv3\pmod8$, citing M. Xia and
+       T. Xia (1999).
+    2. (gap) The closest prior art for Theorem 2, $C$-partitions (M. Y. Xia
+       1984; M. Xia and T. Xia 1999), was neither cited nor read.
+    3. (error) "every frequency" should be "every nonzero frequency".
+    4. (missing hypothesis) The README's statement of Theorem 2 lacked
+       $q\equiv3\pmod4$.
+    5. (sharpening) The converse for the $T$-matrices was not stated.
+    6. (sharpening) The README's statement of Theorem 7 counted the norm
+       twice.
+    7–8. (documentation) The 71 and "infinitely many" limits overstated the
+       paper.
+    9–10. (documentation) There was unhedged novelty and an unhedged
+       "not known".
+    11. (documentation) The nine-point product was not credited to
+        Xia–Xia–Seberry Theorem 4.
+    12. (documentation) The README did not say which certificate the full
+        check uses.
+    13. (documentation) The sign convention of the 2021 table was not stated.
+    14. (documentation) There was process wording in the prior-art files.
+    15. (documentation) The MANIFEST link was dead.
+    16. (documentation) The version line differed from the README status.
+    17. (documentation) README link-text math was not rendered.
+    18. (documentation) The PDF text layer has "Crnkovi¢".
+    19–20. (documentation) The completion-rule indexing and the MX link.
+    21. (gap, residual) Some claims rest on sources not re-read.
+  - Dispositions:
+    - Items 1, 2 and 9: the paper and README now credit $C$-partitions and
+      their construction at $q\equiv3\pmod8$. The novelty of Theorem 2 is
+      hedged to the sources read, and both papers are recorded as not openly
+      accessible. A follow-up search is logged.
+    - Items 3–8, 10–15, 17, 19–21: fixed as proposed.
+    - Item 16: the version line and README status are aligned at the
+      candidate commit.
+    - Item 18: not fixed. `\pdfgentounicode` fixes the ligatures, but the T1
+      glyph for "ć" in the default fonts still extracts as "¢". Adding
+      `lmodern` is excluded by the release convention. Cosmetic.

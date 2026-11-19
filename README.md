@@ -2,10 +2,11 @@
 
 Jeffery Kline
 
-**Status: draft.** This repository is being prepared for release under the
-project's
-[public research standard](https://jeff-kline.github.io/posts/research-program/index.html).
-No DOI exists yet.
+**Status: release candidate for version 0.1.0.** The claims are frozen
+and audited (see [ADMISSION.md](ADMISSION.md)). There is no tag, archive or
+DOI yet, so there is no stable citation. Admission under the project's
+[public research standard](https://jeff-kline.github.io/posts/research-program/index.html)
+is a release decision, not peer review or a correctness certificate.
 
 The paper is [paper/main.pdf](paper/main.pdf); its source is
 [paper/main.tex](paper/main.tex).
@@ -40,34 +41,48 @@ Goethals–Seidel array turn them into the regular matrix of order 3481956.
 ## What is new
 
 Leung, Ma and Schmidt gave the regular matrix of order $4\cdot311^2$ and the
-half-lines used here. Xia, Xia and Seberry showed how concentrated
-$T$-matrices multiply, gave them at 7 and 23, and gave the cyclotomic period
-equations at $q\equiv7\pmod{16}$. New here:
+half-lines used here. Concentrated $T$-matrices, called $C$-partitions, go back
+to M. Y. Xia (1984). M. Xia and T. Xia (1999) constructed them for every prime
+power $q\equiv3\pmod8$. Xia, Xia and Seberry (2003) showed how they multiply
+and built them from cyclotomic classes at 7 and 23. Xia, Xia and Seberry
+(2021) gave the cyclotomic period equations at $q\equiv7\pmod{16}$. New here:
 
 1. **Principal result: a regular Hadamard matrix of order 3481956**, Menon
    parameter 933 (paper Theorem 1).
-2. **The completion theorem** (Theorem 2). Four prescribed arrays of
-   quadratic-character signs on the lines of $\mathbb F_q^2$ can be completed
-   to four disjoint $T$-matrices with row sums $(q,0,0,0)$ if and only if each
-   line carries exactly two character rows, each row leaves an odd number of
-   lines constant, and the four character sums have total energy $2q$ at
-   every frequency.
+2. **The completion theorem** (Theorem 2). Let $q\equiv3\pmod4$ be a prime
+   power. Prescribe quadratic-character signs on some of the lines through the
+   origin of $\mathbb F_q^2$, in a $4\times(q+1)$ array, and leave the other
+   entries blank. The blanks can be filled with constant signs to give four
+   disjoint $T$-matrices with row sums $(q,0,0,0)$ if and only if three
+   conditions hold:
+   - each line carries exactly two prescribed rows;
+   - each row has an odd number of blanks;
+   - the four character sums have total energy $2q$ at every nonzero
+     frequency.
+
+   An Euler circuit then gives the constant signs. We have not found this
+   criterion in the sources examined. The closest source, Xia and Xia (1999),
+   was not openly accessible at the time of writing.
 3. **Families** (Corollary 4, Theorem 5). The product theorems of Xia, Xia and
    Seberry give regular Hadamard matrices at Menon parameters $311r$ for every
    prime power $r\equiv1\pmod4$, and at $311rm^2$ for every prime
    $r\equiv5\pmod8$ and odd $m$. The parameters with $m\ge3$ number
    asymptotically $\frac{\pi^2/8-1}{1244}\cdot\frac{X}{\log X}$ up to $X$.
-4. **An arithmetic criterion** (Theorem 7). The four sign words of the
-   certificate work at a prime $p\equiv7\pmod{16}$ exactly when three
-   quadratic equations in four integers have a solution with norm $p$. The
-   primes 7, 23, 311, 6263 and 63258551 qualify, and there are $O(\log X)$
-   such primes up to $X$.
+4. **An arithmetic criterion** (Theorem 7, Corollary 8). Let $p\equiv7\pmod{16}$
+   be prime. The four sign words of the certificate work at $p$, for some
+   primitive element of $\mathbb F_{p^2}$, exactly when there are integers
+   $a,b,c,d$ with $p=a^2+2(b^2+c^2+d^2)$ that satisfy two further quadratic
+   relations. The primes 7, 23, 311, 6263 and 63258551 qualify, and there are
+   $O(\log X)$ such primes up to $X$.
 
 Not new:
 
 - The regular matrix at 311 and its half-lines (Leung, Ma and Schmidt).
+- Concentrated $T$-matrices ($C$-partitions) and their construction at every
+  prime power $q\equiv3\pmod8$ (M. Y. Xia; M. Xia and T. Xia).
 - The $T$-matrix product theorems and the concentrated inputs at 7 and 23
-  (Xia, Xia and Seberry, 2003).
+  (Xia, Xia and Seberry, 2003). The nine-point product in Section 4 is a case
+  of their Theorem 4, written out so that the certificate checks it directly.
 - The norm and relative-norm equations in Theorem 7, which agree with the
   period equations of Xia, Xia and Seberry (2021).
 - The Goethals–Seidel array.
@@ -81,9 +96,13 @@ in the families.
 ## Earlier work
 
 - **Leung, Ma and Schmidt (2006)**,
-  [*New Hadamard matrices of order $4p^2$ obtained from Jacobi sums of order 16*](https://doi.org/10.1016/j.jcta.2005.07.011):
+  [*New Hadamard matrices of order 4p² obtained from Jacobi sums of order 16*](https://doi.org/10.1016/j.jcta.2005.07.011):
   regular Hadamard matrices of order $4p^2$ from whole lines and half-lines,
   including $p=311$.
+- **M. Y. Xia (1984)**, *On supplementary difference sets and Hadamard
+  matrices*, Acta Math. Sci. 4 (in Chinese), and **M. Xia and T. Xia (1999)**,
+  *A family of C-partitions and T-matrices*, J. Combin. Des. 7: $C$-partitions,
+  and an infinite family of them for prime powers $q\equiv3\pmod8$.
 - **Xia, Xia and Seberry (2003)**,
   [*Regular Hadamard matrix, maximum excess and SBIBD*](https://ajc.maths.uq.edu.au/pdf/27/ajc_v27_p263.pdf):
   $T$-matrices with concentrated row sums, the product theorems used here, and
@@ -103,7 +122,7 @@ in the families.
 
 | Claim | Status |
 |---|---|
-| Theorem 1: regular Hadamard matrix of order 3481956 | proved on paper; certified computation of all summed autocorrelations of the four blocks |
+| Theorem 1: regular Hadamard matrix of order 3481956 | proved on paper; certified computation of all summed autocorrelations of the four blocks, built from the first certificate of Section 3 |
 | Theorem 2 (completion) | proved on paper |
 | The certificates at 311 (Section 3) | certified computation at every projective frequency, for both certificates |
 | Corollary 4 (families) | proved on paper, conditional on the cited theorems of Xia, Xia and Seberry (2003) |
@@ -117,10 +136,11 @@ Limits:
 - The dense matrix of order 3481956 is not stored or built. The check
   computes the summed periodic autocorrelations of the four blocks, which the
   Goethals–Seidel array turns into the Hadamard property.
-- Whether infinitely many primes admit concentrated $T$-matrices of this kind
-  is open. The four words of Section 3 give $O(\log X)$ of them up to $X$.
-- No concentrated $T$-matrices are known at 71, the smallest open prime
-  $\equiv7\pmod{16}$.
+- Whether infinitely many primes $p\equiv7\pmod{16}$ admit completions as in
+  Theorem 2 is open. Corollary 8 concerns one fixed set of four words, which
+  gives $O(\log X)$ such primes up to $X$.
+- We know no group-developed concentrated $T$-matrices of order $71^2$; 71 is
+  the smallest prime $\equiv7\pmod{16}$ for which this is open.
 
 ## Reproduce
 

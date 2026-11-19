@@ -1,10 +1,10 @@
 # Admission record
 
-**Current state:** DRAFT
+**Current state:** CANDIDATE
 
 Current verdict: NOT YET ADMITTED
 
-**Version:** 0.1.0 (in preparation)
+**Version:** 0.1.0 (release candidate)
 
 **Standard:** [A Public Standard for This Work](https://jeff-kline.github.io/posts/research-program/index.html)
 
@@ -34,12 +34,12 @@ Further results:
   admissible primes (Theorem 7, Corollary 8).
 
 Limits: no priority is claimed for individual parameters in the families;
-concentrated $T$-matrices at 71 are not known.
+we know no group-developed concentrated $T$-matrices of order $71^2$.
 
 ## Gates
 
 | Gate | Status | Evidence or residual |
 |---|---|---|
-| P1 prior work and credit | PARTIAL | `audit/PRIOR-ART.md` and the search log of 2026-11-18/19. Residuals: the body of Xia–Xia–Seberry (2021) was not openly accessible at the time of writing; Crnković (2018) and the manuscript's Remark 3 were read once; one GitHub search was rate limited |
-| A1 claim and artifact consistency | IN PROGRESS | Cold examiner: Stage 1 NOT-BROKEN, Stage 2 VERIFIED, 11 errata applied. Release audits pending |
-| R1 release and stewardship | IN PROGRESS | `make verify` (3 MATCH) and `make paper` pass. No tag, archive or DOI yet |
+| P1 prior work and credit | PARTIAL | `audit/PRIOR-ART.md` and the search log of 2026-11-18/19. Residuals: the body of Xia–Xia–Seberry (2021), and M. Y. Xia (1984) and M. Xia–T. Xia (1999), the closest sources for Theorem 2, were not openly accessible at the time of writing; Crnković (2018) and the manuscript's Remark 3 were read on 2026-11-18 only; one GitHub search was rate limited |
+| A1 claim and artifact consistency | PASS | The author approved the abstract and README introduction (2026-11-19). Cold examiner (Stage 1 NOT-BROKEN, Stage 2 VERIFIED) and three release audits (claims, citations, reproducibility); every finding and its disposition is in `audit/LEDGER.md` |
+| R1 release and stewardship | IN PROGRESS | `make verify` (3 MATCH, with a must-fail control) and a deterministic `make paper` pass, also from a clean `git archive`; correction policy, CITATION.cff and MANIFEST.sha256 present. No tag, archive or DOI yet |

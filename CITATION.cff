@@ -18,7 +18,7 @@ abstract: >-
   line, can be completed to four disjoint T-matrices with row sums (q,0,0,0)
   exactly when each line carries two character rows, each row has an odd
   number of constant lines, and the character sums have energy 2q at every
-  frequency. Applied to the half-lines of Leung, Ma and Schmidt at q = 311,
+  nonzero frequency. Applied to the half-lines of Leung, Ma and Schmidt at q = 311,
   this gives the T-matrices, and a nine-point factor and the Goethals-Seidel
   array give the matrix. Published product theorems give infinite families of
   regular parameters 311r and 311rm^2. One fixed set of four sign words works

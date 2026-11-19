@@ -14,7 +14,7 @@ order $4\cdot933^2=3481956$ among the sources and product theorems examined.
 | Xia, Xia and Seberry (2007), §4.2 | 933 undetermined | status in 2007 |
 | Crnković (2018) | 933 among 111 unresolved parameters below 1000 | status in 2018 |
 | Leung, Ma and Schmidt (2006), Appendix 3 | regular matrix of order $4\cdot311^2$ from whole lines and half-lines | supplies the half-lines used here; gives no concentrated $T$-matrices |
-| Xia, Xia and Seberry (2021), Appendix A | row 311 with period parameters $(7,-1,7,9)$ and no applicable theorem | the period equations are theirs; their theorems do not reach 311 |
+| Xia, Xia and Seberry (2021), Appendix A | row 311 with period parameters $(7,-1,7,9)$ in their convention (the paper's $(a,b,c,d)=(7,-1,-7,-9)$, after exchanging $b$ and $d$) and no applicable theorem | the period equations are theirs; their theorems do not reach 311 |
 | Xia, Seberry and Xia, manuscript precursor of the 2021 paper, Remark 3 | 311 named as a gap in the sixteenth-power method | as above |
 | Egan, Kotsireas, London and Ó Catháin, arXiv:2610.27175v2, §4 | ordinary Hadamard matrix of order 3732 | not regular; no input to a regular product |
 
@@ -31,19 +31,31 @@ Routes checked at 933:
   matrix of order 1866. We found none in the literature; $1865=5\cdot373$ is
   not a prime power, so the Paley construction does not supply one.
 - **The $T$-matrix products of Xia, Xia and Seberry (2003, 2007)** need
-  concentrated $T$-matrices at 311. They supply these at 7 and 23, and at
-  primes $\equiv3\pmod8$, but not at 311.
+  concentrated $T$-matrices at 311. Concentrated $T$-matrices are known at
+  every prime power $q\equiv3\pmod8$ (M. Xia and T. Xia 1999, as stated in
+  Xia–Xia–Seberry 2003, Proposition 4) and at 7 and 23 (Xia–Xia–Seberry
+  2003, Lemma 8 and the proof of Proposition 8), but not at 311, which is
+  $7\bmod8$.
 - **The 2021 cyclotomic construction** gives four supplementary difference
   sets of equal size at many $q\equiv7\pmod{16}$. Concentrated $T$-matrices
-  also need every point to be covered an even number of times, and their
-  theorems do not supply this. They record no applicable theorem at 311.
+  also need every point to be covered an even number of times, and we have
+  not found that their theorems supply this. They record no applicable
+  theorem at 311.
 
 ## The completion theorem, families and arithmetic criterion
 
+- **$C$-partitions** (M. Y. Xia 1984; M. Xia and T. Xia 1999): concentrated
+  $T$-matrices, with an infinite family on $\mathbb F_q^2$ for prime powers
+  $q\equiv3\pmod8$. Xia, Xia and Seberry (2005, Australas. J. Combin. 32,
+  61–78; read in part) give another construction for the same $q$. Neither the
+  1984 nor the 1999 paper was openly accessible at the time of writing.
 - **Xia, Xia and Seberry (2003), Theorem 2**: concentrated $T$-matrices from
-  supplementary difference sets with even multiplicity. Theorem 2 of the paper
-  is a criterion of this kind for the half-line structure, with an explicit
-  Euler-circuit completion. We found no source stating this criterion.
+  supplementary difference sets with even multiplicity. Their examples at 7
+  and 23 are built from cyclotomic classes (half-lines).
+- Theorem 2 of the paper is an exact criterion for the half-line structure at
+  every prime power $q\equiv3\pmod4$, with an explicit Euler-circuit
+  completion. We found no source stating this criterion among those read;
+  the 1984 and 1999 papers were not read.
 - **Families** (Corollary 4, Theorem 5): the existence statements are
   substitutions into Xia, Xia and Seberry (2003), Theorems 3–4, Proposition 1
   and Lemma 4. The count of distinct parameters is new here. No priority is
@@ -56,6 +68,8 @@ Routes checked at 933:
 ## Credit
 
 - **Leung, Ma and Schmidt**: the regular matrix at 311 and its half-lines.
+- **M. Y. Xia; M. Xia and T. Xia**: $C$-partitions and their construction
+  at prime powers $q\equiv3\pmod8$.
 - **Xia, Xia and Seberry**: $T$-matrices, their product theorems, the inputs
   at 7 and 23, and the sixteenth-power period equations.
 - **Goethals and Seidel**: the array.
@@ -64,9 +78,11 @@ Routes checked at 933:
 
 - The body of Xia, Xia and Seberry (2021) was not openly accessible at the
   time of writing. Its Appendix A and the manuscript precursor were read.
-- Crnković (2018) and the precursor's Remark 3 were read once, in the earlier
-  priority pass. A later audit could not open them (publisher refusal and a
-  damaged PDF).
+- M. Y. Xia (1984) and M. Xia and T. Xia (1999), the closest sources for
+  Theorem 2, were not openly accessible at the time of writing.
+- Crnković (2018) and the precursor's Remark 3 were read on 2026-11-18. On
+  2026-11-19 the publisher refused access to the first, and the PDF of the
+  second rendered blank.
 - The incidental results of the papers citing Leung–Ma–Schmidt were screened
   by title, not all read.
 - Nonabelian Menon difference sets and other product constructions were
