@@ -1,0 +1,70 @@
+cff-version: 1.2.0
+message: "Please cite Version 0.1.0 of this research repository."
+title: "A regular Hadamard matrix of order 4·933²"
+type: software
+version: 0.1.0
+authors:
+  - family-names: Kline
+    given-names: Jeffery
+repository-code: "https://github.com/jeff-kline/regular-hadamard-933"
+url: "https://github.com/jeff-kline/regular-hadamard-933"
+license: GPL-3.0-only
+abstract: >-
+  A paper and release repository giving a regular Hadamard matrix of order
+  4·933^2 = 3481956, with every row and column sum 1866; the Menon parameter
+  933 = 3·311 was listed as undecided in 2007 and 2018. The main tool is a
+  completion theorem: four functions on the plane F_q^2, q = 3 mod 4, each a
+  constant sign or a sign times the quadratic character on every punctured
+  line, can be completed to four disjoint T-matrices with row sums (q,0,0,0)
+  exactly when each line carries two character rows, each row has an odd
+  number of constant lines, and the character sums have energy 2q at every
+  frequency. Applied to the half-lines of Leung, Ma and Schmidt at q = 311,
+  this gives the T-matrices, and a nine-point factor and the Goethals-Seidel
+  array give the matrix. Published product theorems give infinite families of
+  regular parameters 311r and 311rm^2. One fixed set of four sign words works
+  at exactly the primes p = 7 mod 16 satisfying three quadratic equations, a
+  set with O(log X) members up to X. Novelty is bounded to the sources
+  searched.
+keywords:
+  - Hadamard matrices
+  - regular Hadamard matrices
+  - Menon designs
+  - symmetric designs
+  - T-matrices
+  - cyclotomy
+references:
+  - type: article
+    title: "New Hadamard matrices of order 4p^2 obtained from Jacobi sums of order 16"
+    authors:
+      - family-names: Leung
+        given-names: Ka Hin
+      - family-names: Ma
+        given-names: Siu Lun
+      - family-names: Schmidt
+        given-names: Bernhard
+    journal: "Journal of Combinatorial Theory, Series A"
+    volume: 113
+    year: 2006
+    doi: 10.1016/j.jcta.2005.07.011
+  - type: article
+    title: "Regular Hadamard matrix, maximum excess and SBIBD"
+    authors:
+      - family-names: Xia
+        given-names: Tianbing
+      - family-names: Xia
+        given-names: Mingyuan
+      - family-names: Seberry
+        given-names: Jennifer
+    journal: "Australasian Journal of Combinatorics"
+    volume: 27
+    year: 2003
+    url: "https://ajc.maths.uq.edu.au/pdf/27/ajc_v27_p263.pdf"
+  - type: article
+    title: "Regular Hadamard matrices constructed from Hadamard 2-designs and conference graphs"
+    authors:
+      - family-names: Crnković
+        given-names: Dean
+    journal: "Discrete Mathematics"
+    volume: 341
+    year: 2018
+    doi: 10.1016/j.disc.2017.09.020

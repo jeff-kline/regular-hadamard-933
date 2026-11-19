@@ -1,0 +1,4 @@
+p=23, z=[1, 2], 24 projective frequencies, T sums [23, 0, 0, 0], regular order 19044
+p=311, z=[1, 4], 312 projective frequencies, T sums [311, 0, 0, 0], regular order 3481956
+p=311, z=[201, 121], 312 projective frequencies, T sums [311, 0, 0, 0], regular order 3481956
+control: p=311 with one column of signs flipped fails as required (line energy 0)

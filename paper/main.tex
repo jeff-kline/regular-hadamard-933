@@ -1,0 +1,277 @@
+% A regular Hadamard matrix of order 4*933^2
+% Compile with pdflatex (see the repository Makefile).
+
+\documentclass[11pt]{article}
+\usepackage[letterpaper,margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsthm,booktabs}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+\hypersetup{pdftitle={A regular Hadamard matrix of order 4*933\textasciicircum 2},pdfauthor={Jeffery Kline}}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\F}{\mathbb F}
+\newcommand{\one}{\mathbf 1}
+\newcommand{\Rea}{\operatorname{Re}}
+\emergencystretch=2em
+
+\title{A regular Hadamard matrix of order $4\cdot933^2$}
+\author{Jeffery Kline}
+\date{November 19, 2026\\[3pt]\small Version 0.1.0 (release candidate)}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We construct a regular Hadamard matrix of order $4\cdot933^2=3481956$, with every row and column sum equal to $1866$. Equivalently, there is a symmetric $(3481956,1740045,869556)$ design. The parameter $933=3\cdot311$ appears among the undecided cases in the lists of Xia, Xia and Seberry (2007) and Crnkovi\'c (2018). The construction starts from four functions on the plane $\F_q^2$, $q\equiv3\pmod4$, each equal on every punctured line through the origin to either a constant sign or a sign times the quadratic character. We prove an exact criterion for when the constant signs can be chosen so that the four functions give disjoint $T$-matrices with row sums $(q,0,0,0)$, and an Euler circuit supplies the signs. Applied to the half-lines of Leung, Ma and Schmidt at $q=311$, our criterion gives four disjoint $T$-matrices with row sums $(311,0,0,0)$, from which we construct a regular Hadamard matrix of order $3481956$. Published product theorems then give regular Hadamard matrices at Menon parameters $311r$ for every prime power $r\equiv1\pmod4$, and at $311rm^2$ for primes $r\equiv5\pmod8$ and odd $m$; with $m\ge3$ the second family alone supplies asymptotically $cX/\log X$ parameters $k\le X$, where $c=(\pi^2/8-1)/1244$. One explicit set of four sign words at $311$ works at exactly those primes $p\equiv7\pmod{16}$ satisfying three quadratic equations in four integers; among them are $6263$ and $63258551$, and there are $O(\log X)$ such primes up to $X$.
+\end{abstract}
+
+\section{Introduction}
+A Hadamard matrix $H$ of order $n$ is \emph{regular} if all its row and column sums are equal. Then $n=4k^2$ for an integer $k$, the \emph{Menon parameter}, and after an overall change of sign the common sum is $2k$. The negative entries of $H$ form the incidence matrix of a symmetric design with parameters $(4k^2,\,2k^2-k,\,k^2-k)$. Regular Hadamard matrices are conjectured to exist for every $k$.
+
+\begin{theorem}\label{main}
+There exists a regular Hadamard matrix of order $4\cdot933^2=3481956$ with common row and column sum $1866$. Hence there exists a symmetric $(3481956,1740045,869556)$ design.
+\end{theorem}
+
+The proof combines a known construction at $311$ with a new criterion. Leung, Ma and Schmidt~\cite{LMS} constructed a regular Hadamard matrix of order $4\cdot311^2$ from whole lines and half-lines of $\F_{311}^2$. A regular matrix at $311$ is not enough to reach $3\cdot311$: Kronecker multiplication by the regular matrix of order $36$ gives order $16\cdot933^2$, not $4\cdot933^2$. What is needed is a stronger input, four disjoint $T$-matrices of order $311^2$ whose row sums are concentrated in one of them, $(311,0,0,0)$. Xia, Xia and Seberry~\cite{XXS} showed how such concentrated $T$-matrices multiply, and supplied them at $7$ and $23$.
+
+Our main tool is a completion theorem (Theorem~\ref{completion}). Fix four sign patterns on $\F_q^2$ which, on each punctured line through zero, are either a quadratic character times a prescribed sign or an unspecified constant. The theorem says exactly when the constants can be chosen to give four disjoint $T$-matrices with row sums $(q,0,0,0)$: each line must carry exactly two character rows, each row must leave an odd number of lines constant, and the four character sums must have total energy $2q$ at every frequency. When these conditions hold an Euler circuit in a small multigraph produces the constants, with no search. The half-lines of~\cite{LMS} at $311$ satisfy the conditions after projecting to whole-line classes (Section~\ref{sec:cert}), so the half-line data of the published construction, with the whole lines re-chosen, already give concentrated $T$-matrices. A nine-point factor and the Goethals--Seidel array then give Theorem~\ref{main} (Section~\ref{sec:product}).
+
+\paragraph{Relation to earlier work.}
+Xia, Xia and Seberry list $933$ among the undecided parameters below $1000$~\cite[\S4.2]{XXS07}, and Crnkovi\'c lists it again among $111$ unresolved parameters~\cite{Crn}. Their later sixteenth-power cyclotomic construction covers many primes $q\equiv7\pmod{16}$ at order $4q^2$. Its published table gives the period parameters at $q=311$ but no applicable theorem~\cite[Appendix~A]{XXS21}, and a manuscript version of that paper singles out $311$ as a gap in the method~\cite[Remark~3]{XSXpre}. Their construction produces four supplementary difference sets of equal size, that is, four sign functions with equal sums $q$. Concentrated $T$-matrices need in addition that every point be covered an even number of times (the positive-product condition of Theorem~\ref{completion}; compare~\cite[Theorem~2]{XXS}), and their theorems do not supply this.
+
+Several other routes do not reach $933$. Turyn's product for abelian Menon difference sets would need one in an abelian group of order $4\cdot311^2$, which McFarland's theorem excludes; see the introduction of~\cite{MX}. Crnkovi\'c's two constructions~\cite{Crn} require a skew-type design whose parameter, $933$ or $932$, must be $3\bmod4$. Wallis and Whiteman's construction~\cite[Corollary~17]{WW} at $k=933$ would need a symmetric conference matrix of order $1866$, which is not known. Egan, Kotsireas, London and \'O~Cath\'ain construct an ordinary Hadamard matrix of order $3732=4\cdot933$ from four circulants of length $933$~\cite[\S4]{EKLO}; it is not regular and gives no input to a regular product. We found no earlier construction at parameter $933$ among the sources and product theorems examined.
+
+\paragraph{Further results.}
+The concentrated $T$-matrices at $311$ feed the product theorems of~\cite{XXS}. They give regular Hadamard matrices at Menon parameters $311r$ for every prime power $r\equiv1\pmod4$, and at $311rm^2$ for primes $r\equiv5\pmod8$ and odd $m$ (Corollary~\ref{family}); we count the second family in Theorem~\ref{count}. In Section~\ref{sec:arith} we fix the four sign words of our certificate and ask at which primes they work. The answer is an arithmetic criterion: three quadratic equations in four integers (Theorem~\ref{arith}). The primes $7$, $23$, $311$, $6263$ and $63258551$ satisfy it, but only $O(\log X)$ primes up to $X$ can.
+
+\section{The completion theorem}\label{sec:completion}
+Let $q\equiv3\pmod4$ be a prime power, $V=\F_q^2$, and $\eta$ the quadratic character of $\F_q$, with $\eta(0)=0$. Choose a representative $v_j$ from each of the $q+1$ directions. In a $4\times(q+1)$ array prescribe coefficients $a_{ij}\in\{0,\pm1\}$. A nonzero coefficient prescribes a quadratic character on the line; a zero, called a \emph{blank}, leaves room for a constant sign. Allow a simultaneous reversal of all prescribed signs in any row. After those reversals, a \emph{completion} has
+\begin{equation}\label{line}
+ s_i(0)=1,\qquad s_i(tv_j)=a_{ij}\eta(t)+b_{ij}\quad(t\ne0),
+\end{equation}
+where $b_{ij}=0$ at prescribed positions and $b_{ij}=\pm1$ at blanks. For a linear functional $y\colon V\to\F_q$ put
+\[
+ d_i(y)=\sum_j a_{ij}\eta(y(v_j)),\qquad n_j=\#\{i:a_{ij}\ne0\}.
+\]
+Fix a nonprincipal additive character $\psi$ of $\F_q$; the characters of $V$ are $x\mapsto\psi(y(x))$ for linear functionals $y$. We use the unnormalized Fourier transform $\widehat f(y)=\sum_{x\in V}f(x)\psi(y(x))$.
+
+\begin{theorem}[Completion]\label{completion}
+There is a completion with row sums $q$, positive pointwise product $\prod_i s_i(x)=1$, and $\sum_i|\widehat s_i(y)|^2=4q^2$ at every $y$ if and only if the prescribed array satisfies:
+\begin{enumerate}
+\item[\rm(i)] each column has exactly two nonzero entries;
+\item[\rm(ii)] each row has an odd number of blanks;
+\item[\rm(iii)] $\sum_i d_i(y)^2=2q$ for every nonzero $y$.
+\end{enumerate}
+Every such completion yields four disjoint $T$-matrices on $V$ with row sums $(q,0,0,0)$.
+\end{theorem}
+
+\begin{proof}
+The sum of $s_i$ is $1+(q-1)\sum_j b_{ij}$, since $\sum_{t\ne0}\eta(t)=0$. So row sum $q$ is equivalent to $\sum_j b_{ij}=1$, which forces (ii). At a nonzero $y$, let $k$ be its kernel direction. The sum of $\psi(ty(v_j))$ over $t\ne0$ is $q-1$ for $j=k$ and $-1$ otherwise. Consequently
+\begin{equation}\label{gauss}
+ \widehat s_i(y)=q\,b_{ik}+G\,d_i(y),\qquad G=\sum_{t\in\F_q}\eta(t)\psi(t).
+\end{equation}
+Here $\overline G=-G$ because $\eta(-1)=-1$, and $|G|^2=q$ by orthogonality. So the cross term in $|\widehat s_i(y)|^2$ vanishes, and the required Fourier identity is equivalent to
+\begin{equation}\label{energy}
+ \sum_i d_i(y)^2=q\,n_k .
+\end{equation}
+Row reversals preserve this equation.
+
+\emph{Necessity.} The column product at $tv_j$ contains the factor $\eta(t)^{n_j}$, so $n_j$ is even. By (ii) each row has an odd number of prescribed entries. If $n_k=0$, then for $y$ with kernel $k$ each $d_i(y)$ is a sum of an odd number of signs, hence odd, contradicting~\eqref{energy}.
+
+Suppose $n_k=4$. For $y$ with kernel $k$, each $d_i(y)$ is a sum of an even number of signs, so $d_i(y)=2u_i$ with $u_i\in\mathbb Z$, and~\eqref{energy} gives $\sum_iu_i^2=q$. Since $q$ is odd, $\sum_iu_i$ is odd. Let $N$ be the number of prescribed entries and $2E=4(q+1)-N$ the number of blanks. The four $d_i(y)$ together contain $N-4$ signed summands. On each column $j\ne k$ the factors $\eta(y(v_j))$ occur an even number of times, and positivity of the column product makes the product of the prescribed signs equal to the product of the constant signs. Column $k$ has no blanks. So the product of all summands is the product of all $2E$ constant signs, which sum to $4$; exactly $E-2$ of them are negative. Hence
+\[
+ (-1)^{\sum_iu_i}=(-1)^{(N-4)/2}(-1)^{E-2}=(-1)^{2(q+1)-4}=1,
+\]
+a contradiction. This proves (i), and then~\eqref{energy} is (iii).
+
+\emph{Sufficiency.} Form a multigraph on the four rows. Each column gives an edge between its two blank rows, labelled by the product $e_j$ of its two prescribed signs. By (ii) every vertex has odd degree. If $\prod_je_j=-1$, reverse the prescribed signs in one row; since that row has an odd number of prescribed entries, the product becomes $+1$.
+
+Adjoin a fifth vertex joined once to each old vertex. The new multigraph is connected with all degrees even. Delete the fifth vertex from an Euler circuit. What remains is two trails that use each old edge once, and each old vertex is an endpoint of exactly one trail. Assign signs along each trail so that the two ends of edge $j$ have product $e_j$, and so that the two incidences at each internal visit to a vertex have opposite signs. The first sign on each trail is free. Internal visits cancel, so the sum of the signs at vertex $i$ is a single sign $\sigma_i$. If $r$ of the $\sigma_i$ are negative, the number of negative incidences is $\sum_i(\deg i-\sigma_i)/2=(q+1)-2+r$. Their product is $\prod_je_j=1$, so $r$ is even. Multiply every coefficient in row $i$, prescribed and constant, by $\sigma_i$. Each row of constants now sums to $1$, and an even number of row reversals keeps every column product positive. Set the four origin values to $+1$; then~\eqref{gauss} and (iii) give the Fourier identity.
+
+\emph{$T$-matrices.} Let $W$ be the symmetric Hadamard matrix with rows $++++$, $+-+-$, $++--$, $+--+$. These rows and their negatives are exactly the eight sign vectors with positive product. Thus $T(x)=Ws(x)/4$ is a signed coordinate vector for every $x$. Its component sums are $W(q,q,q,q)^{\mathsf T}/4=(q,0,0,0)$, and since $W^{\mathsf T}W=4I$ we get $\sum_i|\widehat T_i(y)|^2=q^2$ for all $y$. The group-developed matrices $(T_i(v-u))_{u,v\in V}$ have disjoint supports, commute, and satisfy $\sum_iT_iT_i^{\mathsf T}=q^2I$; with $R$ the permutation matrix of $x\mapsto-x$, each $T_iR$ is symmetric. These are the $T$-matrix conditions of~\cite[Definition~7]{XXS}.
+\end{proof}
+
+\begin{corollary}\label{orbit}
+The four prescribed rows in Theorem~\ref{completion} cannot all have the same number of nonzero entries.
+\end{corollary}
+\begin{proof}
+By (i) the mean row weight is $2(q+1)/4=(q+1)/2$, which is even. By (ii) every row weight is odd.
+\end{proof}
+
+In particular, the four translates of a single half-line pattern, as in the three- and five-class families of~\cite[Appendices~1--2]{LMS}, cannot be completed in this way. The example at $311$ is different: its rows have two different weights.
+
+\section{A certificate at 311}\label{sec:cert}
+Let $p=311$ and $i^2=-1$ in $\F_{p^2}$. Take $z=1+4i$ and the line representatives $v_j=z^j$, $0\le j\le311$. The norm $z^{312}=17$ is a nonsquare modulo $311$, and $z$ has order $p^2-1=96720$, as one checks by repeated squaring at the prime divisors $2,3,5,13,31$. Define $a_{i,8h+r}=(-1)^hc_{ir}$ for $0\le h\le38$, $0\le r\le7$, where the rows of $c$ are
+\[
+ \texttt{0++-{}-0+0},\qquad \texttt{0000+-0-},\qquad \texttt{+-0-0000},\qquad \texttt{+0-00++-}.
+\]
+Each column has two prescribed signs, so (i) holds. The row weights per eight directions are $5,3,3,5$, and the number of repeats, $39$, is odd, so (ii) holds.
+
+For (iii), let $y_m(v)=\Rea(z^mv)$ and $w_r=\sum_{h=0}^{38}(-1)^h\eta(\Rea(z^{8h+r}))$. The recurrence $(u,v)\mapsto(u-4v,\,4u+v)$ modulo $311$, started at $(1,0)$, gives
+\[
+ (w_0,\ldots,w_7)=(7,-1,-7,-9,0,-9,7,-1).
+\]
+Because $\eta(z^{312})=-1$, shifting the sum over $h$ gives $w_{r+8}=-w_r$, and $d_i(y_m)=\sum_{r=0}^7c_{ir}w_{m+r}$. Table~\ref{tab:sums} lists these sums. Shifting $m$ by eight negates all four, and scaling $y_m$ by a nonzero scalar multiplies all four by a common sign. Since $z$ is primitive, every projective frequency is covered.
+\begin{table}[ht]
+\centering
+\begin{tabular}{r|rrrr@{\qquad}r|rrrr}
+\toprule
+$m$&$d_1$&$d_2$&$d_3$&$d_4$&$m$&$d_1$&$d_2$&$d_3$&$d_4$\\
+\midrule
+0&8&10&17&13&4&13&-17&10&-8\\
+1&-8&-9&6&21&5&21&-6&-9&8\\
+2&-14&7&11&-16&6&-16&-11&7&14\\
+3&-14&-1&-16&-13&7&-13&16&-1&14\\
+\bottomrule
+\end{tabular}
+\caption{The character sums at $311$. Each row has squared length $622=2p$.}\label{tab:sums}
+\end{table}
+
+An explicit completion is as follows. On line $8h+r$ give the lower-numbered blank row the constant $x$, and the other blank row $x$ times the product of the two prescribed signs. For $0\le h<38$ take $x=(-1)^h$; in the last repeat take $x=-1$ at $r=0,1$ and $x=+1$ otherwise. The paired repeats cancel, and the last repeat contributes $1$ to each row.
+
+\paragraph{The half-lines of Leung, Ma and Schmidt.}
+The published example at $311$~\cite[Appendix~3]{LMS} lists index-sixteen classes $0,1,2,3,10$ and $0,6,7,10,13$ for its first two rows; the other two lists are shifted by four. Classes that differ by eight form a whole line. Removing these pairs leaves exactly two prescribed rows per direction, with weights $3,5,3,5$ per eight directions. Their difference-family identity gives~\eqref{energy}, so Theorem~\ref{completion} applies. For a direct check take the primitive element $z^{41}=201+121i$. The generator of~\cite{LMS} is $155-46i$, a root of $x^2+x+17$, and $z^{41}$ is a power of it with exponent $\equiv1\pmod{16}$, so the index-sixteen classes agree. After reversing the first row the four words are $\texttt{++0+0000}$, $\texttt{-0+00+-{}-}$, $\texttt{0000-{}-0-}$ and $\texttt{0-++-0+0}$. In the completion rule above, use $x=-1$ at positions $1,2,5$ of the final repeat.
+
+\section{The regular product}\label{sec:product}
+Let $U=\F_3^2$ with lines $L_1,\ldots,L_4$ through zero, and let $A_i=1-2\cdot\one_{L_i}$. Each $A_i$ has sum $3$. At a nonzero frequency exactly one line is the kernel, so the four transforms are a permutation of $(-6,0,0,0)$; all are real because each $A_i$ is even. For $v=(a,b,c,d)^{\mathsf T}$ let
+\[
+ M(v)=\begin{pmatrix}a&-b&-c&-d\\ b&a&-d&c\\ c&d&a&-b\\ d&-c&b&a\end{pmatrix},
+\]
+the matrix of left quaternion multiplication, so $M(v)^{\mathsf T}M(v)=\|v\|^2I$ for real $v$. With $T$ from Theorem~\ref{completion}, define $B(x,u)=M(A(u))\,T(x)$ on $V\times U$. Each entry is a sign, since $T(x)$ is a signed coordinate vector. Because $M$ is linear,
+\[
+ \widehat B(y,h)=M(\widehat A(h))\,\widehat T(y),
+\]
+so $\sum_i|\widehat B_i(y,h)|^2=\|\widehat A(h)\|^2\,\|\widehat T(y)\|^2=36q^2$ at every frequency. At the zero frequency $\widehat B(0,0)=M((3,3,3,3))(q,0,0,0)^{\mathsf T}=3q(1,1,1,1)$, so all four functions have sum $3q$.
+
+Put $k=3q$. Let $P,Q,S,D$ be the four group-developed matrices of the $B_i$ on $V\times U$, and let $R$ be the permutation matrix of $x\mapsto-x$. Form the Goethals--Seidel array
+\[
+ H_0=\begin{pmatrix}
+ P&QR&SR&DR\\
+ -QR&P&-D^{\mathsf T}R&S^{\mathsf T}R\\
+ -SR&D^{\mathsf T}R&P&-Q^{\mathsf T}R\\
+ -DR&-S^{\mathsf T}R&Q^{\mathsf T}R&P
+ \end{pmatrix}.
+\]
+The group-developed matrices and their transposes commute, $R^2=I$, and $RX=X^{\mathsf T}R$ for each of them. So the off-diagonal blocks of $H_0H_0^{\mathsf T}$ cancel in pairs, and each diagonal block is $PP^{\mathsf T}+QQ^{\mathsf T}+SS^{\mathsf T}+DD^{\mathsf T}=4k^2I$ by Fourier inversion. Negate the first block column to obtain $H$. Each block row of $H$ now has three blocks with row sum $k$ and one with row sum $-k$, so $H\one=2k\one$. Multiplying by $H^{\mathsf T}$ gives $H^{\mathsf T}\one=2k\one$. For $E=(J-H)/2$ we get $E\one=(2k^2-k)\one$ and $EE^{\mathsf T}=k^2I+(k^2-k)J$. Taking $q=311$ proves Theorem~\ref{main}.
+
+\section{Infinite families}\label{sec:families}
+\begin{corollary}\label{family}
+Let $p$ be a prime with concentrated $T$-matrices of order $p^2$ as in Theorem~\ref{completion}; for example $p=311$, or any prime in Table~\ref{tab:norms}. Then regular Hadamard matrices of order $4k^2$ exist for
+\begin{align*}
+ k&=pr &&\text{for every prime power }r\equiv1\pmod4,\\
+ k&=p\cdot2^a3^b\ell^jm^2 && a,b\in\{0,1\},\ j\ge0,\ m\ge1,\ \ell\text{ prime},\ \ell\equiv5\pmod8.
+\end{align*}
+\end{corollary}
+\begin{proof}
+The $T$-matrices have order $t^2$ with $t=p$ and entry totals $(t^3,0,0,0)$. The first family is~\cite[Theorem~3]{XXS}. For the second put $s=2^a3^b\ell^jm^2$. When $j>0$,~\cite[Proposition~1]{XXS} supplies the four matrices of order $s^2$ required by~\cite[Theorem~4]{XXS}; when $j=0$ use~\cite[Lemma~4]{XXS}, whose matrices are symmetric, so that its identities give the hypotheses of~\cite[Theorem~4]{XXS}, as in the proof of~\cite[Proposition~1]{XXS}. Theorem~4 of~\cite{XXS} then gives a symmetric design at parameter $ps$, equivalently a regular Hadamard matrix of order $4(ps)^2$.
+\end{proof}
+
+The prime $311$ occurs to odd exponent in every parameter of Corollary~\ref{family}. In the infinite parameter families stated in the abstracts of~\cite{XXS} and~\cite{XXS07}, a prime $\equiv7\pmod8$ other than $7$ and $23$ occurs only to even exponent, so none of these parameters lies in those families. The abstract of~\cite{XXS07} also lists individual parameters, such as the primes $47$, $71$ and $263$; they are all below $1000$, and none is divisible by $311$. The next result measures the second family beyond the first.
+
+\begin{theorem}\label{count}
+Let $D(X)$ be the number of distinct $k\le X$ of the form $k=311\,r\,m^2$ with $r\equiv5\pmod8$ prime and $m\ge3$ odd. Each such $k$ is the Menon parameter of a regular Hadamard matrix, and
+\[
+ D(X)\sim\frac{\pi^2/8-1}{4\cdot311}\cdot\frac{X}{\log X}.
+\]
+\end{theorem}
+\begin{proof}
+Existence is Corollary~\ref{family} with $a=b=0$, $j=1$, $\ell=r$. The squarefree part of $k$ is $311r$: both $311$ and $r$ occur to odd exponent, and every other prime divides only $m^2$. So $k$ determines $r$, and then $m$. Hence $D(X)=\sum_{m\ge3\text{ odd}}\pi(Y/m^2;8,5)$ with $Y=X/311$. For each fixed $m$, the prime number theorem for arithmetic progressions gives $\pi(Y/m^2;8,5)\sim Y/(4m^2\log Y)$. For $M<m\le Y^{1/4}$ we have $Y/m^2\ge\sqrt Y$, and Chebyshev's bound gives a total $O\big(Y/(M\log Y)\big)$. The terms with $m>Y^{1/4}$ contribute at most $\sum_{m>Y^{1/4}}Y/m^2=O(Y^{3/4})$. Let $X\to\infty$ and then $M\to\infty$, and use $\sum_{m\ge3\text{ odd}}m^{-2}=\pi^2/8-1$ and $\log Y\sim\log X$.
+\end{proof}
+
+Removing the parameters with $m$ a power of $r$, which already lie in the first family of Corollary~\ref{family}, does not change the asymptotic: there is at most one such $r$ for each $m$.
+
+\begin{remark}\label{conference}
+The constructions of Wallis--Whiteman~\cite[Corollary~17]{WW} and Crnkovi\'c~\cite[Theorem~2]{Crn} at parameter $k$ need a symmetric conference matrix of order $2k$. That requires $2k-1$ to be a sum of two squares~\cite{vLS}. For all but $o(X/\log X)$ of the parameters counted in Theorem~\ref{count}, it is not. Indeed, fix $m$ and put $A=622m^2$, so $2k-1=Ar-1$. For a prime $s\equiv3\pmod4$ not dividing $A$, exactly $s-1$ of the $s(s-1)$ invertible classes of $r$ modulo $s^2$ give $s\,\|\,(Ar-1)$, and then $Ar-1$ is not a sum of two squares. By the Chinese remainder theorem and the prime number theorem in progressions, the primes $r\equiv5\pmod8$ that avoid this for every $s$ in a finite set $\mathcal S$ have relative upper density at most $\prod_{s\in\mathcal S}(1-1/s)$. This tends to $0$ as $\mathcal S$ grows, since $\sum_{s\equiv3\,(4)}1/s$ diverges. The tail bound in the proof of Theorem~\ref{count} handles large $m$. We have not compared the family with every published construction. We make no priority claim for individual parameters in it.
+\end{remark}
+
+\section{An arithmetic criterion for the four words}\label{sec:arith}
+At which primes do the four words of Section~\ref{sec:cert} work? The eight energy tests reduce to a single quadratic equation in four period coefficients.
+
+\begin{theorem}\label{arith}
+Let $p\equiv7\pmod{16}$ be prime. The four words $\texttt{0++-{}-0+0}$, $\texttt{0000+-0-}$, $\texttt{+-0-0000}$, $\texttt{+0-00++-}$ of Section~\ref{sec:cert} give a completion for some primitive element of $\F_{p^2}$ if and only if there are integers $a,b,c,d$ with
+\begin{align}
+ p&=a^2+2(b^2+c^2+d^2),\label{norm}\\
+ 0&=2ac-b^2+2bd+d^2,\label{relative}\\
+ 0&=c(b-d)-a(b+c).\label{fixedword}
+\end{align}
+\end{theorem}
+
+\begin{proof}
+Put $\zeta=e^{2\pi i/16}$, let $K$ be the subfield of $\mathbb Q(\zeta)$ fixed by $\zeta\mapsto\zeta^7$, and let $L(x)=(x+x^p)/2$. For a primitive element $z$ set
+\[
+ W_z=\sum_{j=0}^{p}\eta(L(z^j))\zeta^j.
+\]
+Its coefficients in the power basis are the eight folded sums $w_r$, since $\zeta^8=-1$. Let $\chi$ be the character with $\chi(z)=\zeta$. Its restriction to $\F_p^\times$ is $\eta$, because $p+1\equiv8\pmod{16}$. Thus $W_z=(p-1)^{-1}\sum_{x\ne0}\eta(L(x))\chi(x)$. Replacing $x$ by $x^p$ shows $W_z\in K$. Summing the Gauss sum of $\chi$ with the additive character $x\mapsto e^{2\pi iL(x)/p}$ over each scalar line gives $GW_z$, where $G$ is the quadratic Gauss sum of $\F_p$. The two Gauss sums have absolute values $p$ and $\sqrt p$, so $W_z\overline{W_z}=p$.
+
+The vectors in the integral power basis fixed by $\zeta\mapsto\zeta^7$ have the form $(w_0,\ldots,w_7)=(a,b,c,d,0,d,-c,b)$. Write $P=a^2+2(b^2+c^2+d^2)$, $Q=2ac-b^2+2bd+d^2$ and $F=c(b-d)-a(b+c)$. For $U=\sum_rw_r\zeta^r$ one computes $U\overline U=P+\sqrt2\,Q$, so $W_z\overline{W_z}=p$ gives $P=p$ and $Q=0$. Since $z^{p+1}$ is a nonsquare in $\F_p$ and $(p+1)/8$ is odd, $w_{r+8}=-w_r$ as in Section~\ref{sec:cert}. Substituting the four words,
+\[
+ \sum_i\Big(\sum_{r=0}^7c_{ir}w_{r+m}\Big)^2-2P=\begin{cases}4F,&m\text{ even},\\-4F-2Q,&m\text{ odd}.\end{cases}
+\]
+So a realized period passes all eight energy tests exactly when $F=0$. The column supports and odd row weights persist because $(p+1)/8$ is odd.
+
+Conversely, let $U$ come from a solution of~\eqref{norm}--\eqref{fixedword}. The field $K$ is cyclic of degree four over $\mathbb Q$, and $p$ splits completely in it since $p\equiv7\pmod{16}$. Complex conjugation pairs each of the four primes above $p$ with its opposite in cyclic order. Since $U\overline U=p$, the ideal $(U)$ is the product of exactly one prime from each opposite pair, and the four possible choices form one orbit under the Galois group. The same holds for $W_z$, so some Galois conjugate of $W_z$ generates the same ideal as $U$. The quotient is a unit of absolute value $1$ under every embedding, hence a root of unity by Kronecker's theorem; the only roots of unity in $K$ are $\pm1$. Finally, an automorphism of $K$ acts on $\chi$ by an odd power, and it is realized by replacing $z$ with a primitive power of $z$: take the inverse exponent modulo $16$ and make it coprime to the odd part of $p^2-1$ by the Chinese remainder theorem. Thus $U=\pm W_{z'}$ for some primitive $z'$, and the sign does not affect the energies.
+\end{proof}
+
+Equations~\eqref{norm} and~\eqref{relative} agree, after exchanging $b$ and $d$, with the field partition equations of Xia, Xia and Seberry~\cite{XXS21}. Equation~\eqref{fixedword} is the additional condition for these four words.
+
+\paragraph{The curve.}
+On the chart $cd\ne0$, $b\ne d$, put $t=b/d$, $x=c/d$ and $S=t^2-2t-1$. Equations~\eqref{relative} and~\eqref{fixedword} become $a/d=S/(2x)$ and $2(t-1)x^2-Sx-tS=0$, and $y=4(t-1)x-S$ gives
+\begin{equation}\label{curve}
+ y^2=(t^2-2t-1)(9t^2-10t-1).
+\end{equation}
+Conversely $x=(y+S)/(4(t-1))$. The quartic has four distinct roots and two rational points at infinity. Its Jacobian has minimal model $Y^2=X^3+X^2-25X+39$, of rank two~\cite{LMFDB}. Positive rank also follows by hand: the quartic has good reduction at $5$ and $7$, where the numbers of points are $10$ and $12$, so the rational torsion has order at most $2$; but the two points at infinity and $(-1,\pm6)$ are four rational points. So there are infinitely many rational solutions. A prime value of the norm~\eqref{norm} at a primitive integral solution is a further condition.
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{rr@{\;}lrrrr}
+\toprule
+$p$&\multicolumn{2}{c}{generator $z$}&$a$&$b$&$c$&$d$\\
+\midrule
+7&1&$+2i$&1&1&1&$-1$\\
+23&1&$+2i$&$-1$&3&$-1$&1\\
+311&1&$+4i$&7&$-1$&$-7$&$-9$\\
+6263&2869&$+1599i$&63&3&$-7$&$-33$\\
+63258551&1&$+14i$&$-2873$&4719&$-2057$&1001\\
+\bottomrule
+\end{tabular}
+\caption{Primes at which the four words of Section~\ref{sec:cert} give a completion. Each generator was checked directly in $\F_p[i]$, $i^2=-1$.}\label{tab:norms}
+\end{table}
+
+The point $(t,y)=(-1/11,-14/121)$ gives the row for $6263$ up to sign, and $(33/7,-2074/49)$ gives the last row. Each row was also checked by iterating its generator, independently of the curve. At $7$ and $23$ concentrated $T$-matrices were already known~\cite{XXS}. The two largest primes give the Menon parameters $3p=18789$ and $189775653$.
+
+\begin{corollary}\label{fewprimes}
+The number of primes $p\le X$ admitted by Theorem~\ref{arith} is $O(1+\log X)$.
+\end{corollary}
+\begin{proof}
+A prime norm forces a primitive integral solution, so each rational point gives at most one prime. The exceptional planes $c=0$, $d=0$ and $b=d$ meet the two quadrics in finitely many points. On the remaining chart every coefficient is at most $\sqrt X$, so the Weierstrass abscissa, under a fixed rational isomorphism, has logarithmic height $O(1+\log X)$. Half this height differs from the canonical height by a bounded amount~\cite[Theorem~VIII.9.3]{Sil}, and the canonical height is a positive definite quadratic form on the rank-two free part of the Mordell--Weil group. A disk of squared radius $O(1+\log X)$ contains $O(1+\log X)$ lattice points, and torsion contributes a constant factor.
+\end{proof}
+
+So these four words supply only a sparse set of primes. Other word sets may behave differently; Theorem~\ref{completion} applies to any of them.
+
+\section{An open case}
+The smallest prime $q\equiv7\pmod{16}$ at which we know no group-developed concentrated $T$-matrices of order $q^2$ is $71$. Concentrated $T$-matrices of order $71^2$ would give, by Section~\ref{sec:product} and Corollary~\ref{family}, regular Hadamard matrices at Menon parameters $213=3\cdot71$ and $923=13\cdot71$, both on Crnkovi\'c's list. By Corollary~\ref{orbit}, the published four-translate half-line family that includes $71$ cannot be completed by filling its blanks; a different choice of supports is needed.
+
+\section*{Verification}
+Three programs check the construction. The first evaluates every projective frequency for both certificates at $311$ and for a control at $23$. The second builds the four sign functions of the first certificate on $V\times U$ and counts their summed periodic autocorrelations. Multiplication by a nonzero square in $\F_{311}$ fixes the functions, so $1+2\cdot312=625$ shift representatives in $V$ suffice. With all nine shifts in $U$ this gives $5625$ tests covering all $870489$ shifts. The zero shift has value $3481956$, every other shift has value $0$, and the four sums are $933$. The third checks the five generators of Table~\ref{tab:norms}, their folded period sums and all eight energies for each.
+
+\section*{Role of AI}
+AI assisted the derivations, the computer verification, the literature search and the exposition under the author's direction. Process-separated AI reviews checked the proofs and certificates; they are not independent expert peer review, and no independent human expert has examined the proofs.
+
+\begin{thebibliography}{99}
+\bibitem{Crn} D.~Crnkovi\'c, \href{https://doi.org/10.1016/j.disc.2017.09.020}{Regular Hadamard matrices constructed from Hadamard 2-designs and conference graphs}, Discrete Math.\ \textbf{341} (2018), 520--524.
+\bibitem{EKLO} R.~Egan, I.~S.~Kotsireas, M.~London and P.~\'O~Cath\'ain, \href{https://arxiv.org/abs/2610.27175}{Recent progress in the construction of Hadamard matrices}, arXiv:2610.27175v2, 2026.
+\bibitem{LMS} K.~H.~Leung, S.~L.~Ma and B.~Schmidt, \href{https://doi.org/10.1016/j.jcta.2005.07.011}{New Hadamard matrices of order $4p^2$ obtained from Jacobi sums of order 16}, J.\ Combin.\ Theory Ser.~A \textbf{113} (2006), 822--838.
+\bibitem{LMFDB} The LMFDB Collaboration, \href{https://www.lmfdb.org/EllipticCurve/Q/1088/a/2}{Elliptic curve 1088.a2 over $\mathbb Q$}, L-functions and Modular Forms Database.
+\bibitem{MX} K.~Momihara and Q.~Xiang, \href{https://bpb-us-w2.wpmucdn.com/sites.udel.edu/dist/a/6387/files/2019/10/1-s2.0-S1071579719301042-main.pdf}{Generalized constructions of Menon--Hadamard difference sets}, Finite Fields Appl.\ \textbf{61} (2020), 101601.
+\bibitem{Sil} J.~H.~Silverman, \href{https://doi.org/10.1007/978-0-387-09494-6}{The Arithmetic of Elliptic Curves}, 2nd ed., Springer, 2009.
+\bibitem{vLS} J.~H.~van Lint and J.~J.~Seidel, Equilateral point sets in elliptic geometry, Indag.\ Math.\ \textbf{28} (1966), 335--348.
+\bibitem{WW} J.~Wallis and A.~L.~Whiteman, \href{https://doi.org/10.1017/S0004972700044993}{Some classes of Hadamard matrices with constant diagonal}, Bull.\ Austral.\ Math.\ Soc.\ \textbf{7} (1972), 233--249.
+\bibitem{XXS} T.~Xia, M.~Xia and J.~Seberry, \href{https://ajc.maths.uq.edu.au/pdf/27/ajc_v27_p263.pdf}{Regular Hadamard matrix, maximum excess and SBIBD}, Australas.\ J.\ Combin.\ \textbf{27} (2003), 263--275.
+\bibitem{XXS07} T.~Xia, M.~Xia and J.~Seberry, \href{https://ajc.maths.uq.edu.au/pdf/37/ajc_v37_p117.pdf}{Some new results of regular Hadamard matrices and SBIBD II}, Australas.\ J.\ Combin.\ \textbf{37} (2007), 117--125.
+\bibitem{XXS21} T.~Xia, M.~Xia and J.~Seberry, \href{https://doi.org/10.1007/s41980-020-00402-9}{The construction of regular Hadamard matrices by cyclotomic classes}, Bull.\ Iranian Math.\ Soc.\ \textbf{47} (2021), 601--625.
+\bibitem{XSXpre} M.~Xia, J.~Seberry and T.~Xia, \href{https://documents.uow.edu.au/~jennie/WEB/WEB06/Xtb27_RegularHM_Cyclotomic.pdf}{Constructing regular Hadamard matrices by 16th power cyclotomic classes}, manuscript, University of Wollongong.
+\end{thebibliography}
+\end{document}

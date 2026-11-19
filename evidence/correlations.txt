@@ -1,0 +1,1 @@
+Four block sums 933; 5625 shift representatives exhaust 870489 shifts; peak 3481956, off-peak zero.

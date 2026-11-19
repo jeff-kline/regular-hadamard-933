@@ -1,0 +1,5 @@
+p=7, regular parameter 21, order 1764
+p=23, regular parameter 69, order 19044
+p=311, regular parameter 933, order 3481956
+p=6263, regular parameter 18789, order 1412106084
+p=63258551, regular parameter 189775653, order 144059193886305636
