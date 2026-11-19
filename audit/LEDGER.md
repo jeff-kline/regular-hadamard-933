@@ -120,3 +120,16 @@ Three read-only audits in fresh contexts.
     - Item 18: not fixed. `\pdfgentounicode` fixes the ligatures, but the T1
       glyph for "ć" in the default fonts still extracts as "¢". Adding
       `lmodern` is excluded by the release convention. Cosmetic.
+
+## 2026-11-19 — tag, archive and admission
+
+- The author accepted the P1 residual (Xia–Xia 1999 not openly accessible).
+- Pre-tag rescan: nothing new (see the search log).
+- Tag `v0.1.0` (object `8b03a2b`) → `066937d`; the tagged-state audit passed
+  8 of 8. The GitHub Release was published at 2026-11-19 18:26 UTC.
+- Zenodo record 24377124 (version DOI 10.5281/zenodo.24377124, concept DOI 10.5281/zenodo.24377123). The Zenodo
+  file is byte-identical to the GitHub zipball pinned before the Release
+  (SHA-256 `1d3692af…`); the archived-state audit passed 12 of 12.
+- Living metadata: README status paragraph and DOI badge, `CITATION.cff` DOI,
+  identifiers and `date-released`, the paper's DOI line, ADMISSION ADMITTED,
+  the CORRECTIONS version history and the rescan record.

@@ -89,3 +89,12 @@ search is recorded as NOT PERFORMED, not as a negative result.
   $T$-matrices of order $q^2$ for prime powers $q\equiv3\pmod8$ and credits
   $C$-partitions to M. Y. Xia (1984) and their infinite family on
   $GF(q^2)$, $q\equiv3\pmod8$, to M. Xia and T. Xia (1999).
+
+## Pre-tag rescan (2026-11-19T18:18Z)
+
+- GitHub code search: positive control (`skew hadamard 1528`) hit
+  `vatskishan03/Hadamard`; `933 regular hadamard`, `3481956 hadamard` and
+  `menon 933`: no hits.
+- `gh search repos` for `regular hadamard` and `menon`, updated since
+  2026-11-18: only this repository and unrelated personal profiles.
+- arXiv, newest entries matching "regular Hadamard" or "Menon": none relevant.

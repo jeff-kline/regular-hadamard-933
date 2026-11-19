@@ -28,4 +28,13 @@ Suspected errors may be reported through the repository's issue tracker:
 
 ## Version history
 
-No version has been released yet.
+### 0.1.0 — released 2026-11-19
+
+- Tag `v0.1.0` at commit `066937d`; version DOI
+  [`10.5281/zenodo.24377124`](https://doi.org/10.5281/zenodo.24377124), concept DOI `10.5281/zenodo.24377123`.
+- The tagged snapshot retains its prepublication “release candidate” wording
+  and carries no DOI, because the DOI was minted by Zenodo after the GitHub
+  Release. The living repository and paper now carry the active DOI; the
+  archived files were not changed.
+- Release preparation, before the tag: the dispositions of all audit findings
+  are in [audit/LEDGER.md](audit/LEDGER.md).
